@@ -3,42 +3,46 @@
   color: #218214;
 }
 .reveal {
-  background: #fff;
+  background: #000;
 }
 .reveal .slides {
   height: 100%;
 }
 .reveal .slides .hljs {
-  background: rgba(250,250,250,0.7);
+  background: rgba(250,250,250,0.85);
+  border-radius: 15px;
+  padding: 15px;
   color: #333;
   max-height: 100%;
 }
 .reveal .slides section {
   padding: 15px;
   padding-top: 25px;
-  background: #fff;
-  color: #000;
+  color: #ebffd2;
   height: 100%;
-  background-image: url("../../imgs/logo.png"), url("../../imgs/slide-bg.png");
-  background-position: bottom right, top right;
+  background-image: url("../../imgs/bg-dark.png"), url("../../imgs/logo.png");
   background-repeat: no-repeat, no-repeat;
   text-align: left;
 }
+.reveal .slides section section {
+  background-image: url("../../imgs/bg-dark.png");
+}
 .reveal .slides section h1,
 .reveal .slides section h2 {
-  color: #000;
+  color: #cf3;
 }
 .reveal .slides section h1 {
   width: 85%;
   font-size: 1.5em;
   text-transform: none;
+  text-align: right;
 }
 .reveal .slides section h2 {
+  color: #faf7c8;
   font-size: 1.3em;
   text-transform: none;
 }
 .reveal .slides .slide-title {
-  background-image: url("../../imgs/logo.png"), url("../../imgs/title-bg.png");
   background-position: top left, bottom right;
   background-repeat: no-repeat, no-repeat;
 }
@@ -68,22 +72,24 @@
 .reveal .slides .signature {
   float: right;
   position: fixed;
-  bottom: 20px;
+  bottom: 30px;
   text-align: left;
 }
 .reveal .slides .signature-course {
+  color: #739900;
   font-size: 1.2em;
   font-weight: bold;
   line-height: 21px;
 }
 .reveal .slides .signature-initiative {
+  color: #f5ffd6;
   font-size: 1.02em;
   line-height: 25px;
+  padding-top: 10px;
   margin-bottom: 0;
 }
 .reveal .slides .signature-link {
-  line-height: 10px;
-}
-.reveal .slides .signature-link:hover {
+  color: #739900;
   text-decoration: underline;
+  line-height: 10px;
 }

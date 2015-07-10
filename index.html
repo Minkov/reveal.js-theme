@@ -2,92 +2,86 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Prototypal Inheritance</title>
-  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-  <meta name="author" content="Hakim El Hattab">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="css/reveal.css">
-  <link rel="stylesheet" href="css/theme/black.css" id="theme">
-  <!-- Code syntax highlighting -->
-  <!-- <link rel="stylesheet" href="lib/css/googlecode.css"> -->
-  <!-- <link rel="stylesheet" href="lib/css/github.css"> -->
-  <link rel="stylesheet" href="lib/css/github-gist.css">
-  <!-- <link rel="stylesheet" href="lib/css/monokai_sublime.css"> -->
-  <!-- <link rel="stylesheet" href="lib/css/tomorrow.css"> -->
-  <!-- <link rel="stylesheet" href="lib/css/xcode.css">
-  <link rel="stylesheet" href="lib/css/vs.css"> -->
-  <!-- Printing and PDF exports -->
-  <script>
-  var link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.type = 'text/css';
-  link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-  document.getElementsByTagName('head')[0].appendChild(link);
-  </script>
-  <!--[if lt IE 9]>
+    <meta charset="utf-8">
+    <title>Prototypal Inheritance</title>
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <!-- <link rel="stylesheet" href="lib/css/googlecode.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/github.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/github-gist.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/monokai_sublime.css"> -->
+    <!-- <link rel="stylesheet" href="lib/css/tomorrow.css"> -->
+    <link rel="stylesheet" href="lib/css/xcode.css">
+  <link rel="stylesheet" href="lib/css/vs.css">
+    <!-- Printing and PDF exports -->
+    <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
-  <link rel="stylesheet" href="css/theme/telerik.css">
+    <link rel="stylesheet" href="css/theme/telerik-academy-dark.css">
 </head>
 
 <body>
-  <div class="reveal">
-    <div class="slides">
-      <section class="slide-title">
-        <h1>Prototypal Inheritance and Duck Typing</h1>
-        <h2>The way to create objects in JavaScript</h2>
-        <aside class="signature">
-          <p class="signature-course">JavaScript OOP</p>
-          <p class="signature-initiative">Telerik Software Academy</p>
-          <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
-        </aside>
-      </section>
-      <section data-markdown>
-        <script type="text/template">
-          # Table of Contents
-          * Object prototypes
-            * _"Inheriting"_ prototypes
-            * Setting values on **prototypes**
-          * Creating instances with **`Object.create()`**
-            * Wrapping it into IIFEs
-            * Duck typing
-        </script>
-      </section>
-      <section>
-        <section class="slide-section" data-markdown>      
-          <script type="text/template">
-            #Object Prototypes
-          </script>
-        </section>
-        <section data-markdown>              
-          <script type="text/template">
-            # Object Prototypes
-            * The prototype is an object, that provides properties to its inheritors
-              * i.e. the objects that have this objects as their prototype
-            * Every object has its own prototype
-              * By default, set to `Object.prototype`
-              * This forms the so called _"Prototype chain"_
-              * `Object` has for prototype `null`, ending the prototype chain
-          </script>          
-        </section>   
-        <section>
-          <h1>Setting the Prototype of an Object</h1>
-          <ul>
-            <li>Every JavaScript object has a property __proto__</li>
-              <ul>
-                <li>It can be used to access/change the prototype</li>
-                <li>Dangerous to use</li>
-              </ul>
-            <li>When setting a prototype to an object, the object has access to all the properties of the prototype
-              <ul>
-                <li>Through the prototype chain</li>
-              </ul>
-            </li>
-          </ul>
-          <pre><code>var animal = {
+    <div class="reveal">
+        <div class="slides">
+            <section class="slide-title">
+                <h1>Prototypal Inheritance and Duck Typing</h1>
+                <h2>The way to create objects in JavaScript</h2>
+                <aside class="signature">
+                    <p class="signature-course">JavaScript OOP</p>
+                    <p class="signature-initiative">Telerik Software Academy</p>
+                    <a href="http://academy.telerik.com" class="signature-link">http://academy.telerik.com</a>
+                </aside>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    # Table of Contents 
+                      * Object prototypes 
+                      * _"Inheriting"_ prototypes 
+                      * Setting values on **prototypes** 
+                      * Creating instances with **`Object.create()`** 
+                      * Wrapping it into IIFEs 
+                      * Duck typing
+                </script>
+            </section>
+            <section>
+                <section class="slide-section" data-markdown>
+                    <script type="text/template">
+                        #Object Prototypes
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        # Object Prototypes * The prototype is an object, that provides properties to its inheritors * i.e. the objects that have this objects as their prototype * Every object has its own prototype * By default, set to `Object.prototype` * This forms the so called _"Prototype chain"_ * `Object` has for prototype `null`, ending the prototype chain
+                    </script>
+                </section>
+                <section>
+                    <h1>Setting the Prototype of an Object</h1>
+                    <ul>
+                        <li>Every JavaScript object has a property __proto__</li>
+                        <ul>
+                            <li>It can be used to access/change the prototype</li>
+                            <li>Dangerous to use</li>
+                        </ul>
+                        <li>When setting a prototype to an object, the object has access to all the properties of the prototype
+                            <ul>
+                                <li>Through the prototype chain</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <pre><code>var animal = {
   makeNoise: function(){
     console.log('The ' + this.type + ' makes noise "' + this.noise + '"');
   }
@@ -96,17 +90,16 @@ var dog = { type: 'dog', noise: 'Djaf' };
 dog.__proto__ = animal;
 dog.makeNoise(); // makeNoise() is from the prototype(animal)
 </pre></code>
-        </section>      
-        <section class="slide-section" data-markdown>      
-          <script type="text/template">
-            #Object Prototypes
-            ##Live Demo
-          </script>
-        </section>
-      </section>
-      <section>
-        <h1>All code slide: JS</h1>
-        <pre><code>//This is a comment
+                </section>
+                <section class="slide-section" data-markdown>
+                    <script type="text/template">
+                        #Object Prototypes ##Live Demo
+                    </script>
+                </section>
+            </section>
+            <section>
+                <h1>All code slide: JS</h1>
+                <pre><code>//This is a comment
 var obj = {
   name: 'John',
   age: 21,
@@ -124,10 +117,10 @@ function introduceAll(people){
 }
 introduceAll([obj]);
 </code></pre>
-      </section>
-      <section>
-        <h1>All code slide: C#</h1>
-        <pre><code>//This is a comment
+            </section>
+            <section>
+                <h1>All code slide: C#</h1>
+                <pre><code>//This is a comment
 class Person{
   private string name;
   public Person(string name, int age){
@@ -145,60 +138,60 @@ var list = new List&lt;int>();
 var people = { new Person("John Doe", 21)};
 list.Select(n => n % 2);
 </code></pre>
-      </section>
-      <section class="slide-section slide-questions" data-markdown>
-        <script type="text/template">
-          #Questions?
-        </script>
-      </section>
-    </div>    
-  </div>
-  <script src="lib/js/head.min.js"></script>
-  <script src="js/reveal.js"></script>
-  <script>
-  /* globals Reveal,hljs */
-  // Full list of configuration options available at:
-  // https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-    controls: true,
-    progress: true,
-    history: true,
-    center: true,
-    transition: 'slide', // none/fade/slide/convex/concave/zoom
-    // Optional reveal.js plugins
-    dependencies: [{
-      src: 'lib/js/classList.js',
-      condition: function() {
-        return !document.body.classList;
-      }
-    }, {
-      src: 'plugin/markdown/marked.js',
-      condition: function() {
-        return !!document.querySelector('[data-markdown]');
-      }
-    }, {
-      src: 'plugin/markdown/markdown.js',
-      condition: function() {
-        return !!document.querySelector('[data-markdown]');
-      }
-    }, {
-      src: 'plugin/highlight/highlight.js',
-      async: true,
-      condition: function() {
-        return !!document.querySelector('pre code');
-      },
-      callback: function() {
-        hljs.initHighlightingOnLoad();
-      }
-    }, {
-      src: 'plugin/zoom-js/zoom.js',
-      async: true
-    }, {
-      src: 'plugin/notes/notes.js',
-      async: true
-    }]
-  });
-  </script>
+            </section>
+            <section class="slide-section slide-questions" data-markdown>
+                <script type="text/template">
+                    #Questions?
+                </script>
+            </section>
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+    /* globals Reveal,hljs */
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // Optional reveal.js plugins
+        dependencies: [{
+            src: 'lib/js/classList.js',
+            condition: function() {
+                return !document.body.classList;
+            }
+        }, {
+            src: 'plugin/markdown/marked.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/markdown/markdown.js',
+            condition: function() {
+                return !!document.querySelector('[data-markdown]');
+            }
+        }, {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            condition: function() {
+                return !!document.querySelector('pre code');
+            },
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }, {
+            src: 'plugin/zoom-js/zoom.js',
+            async: true
+        }, {
+            src: 'plugin/notes/notes.js',
+            async: true
+        }]
+    });
+    </script>
 </body>
 
 </html>

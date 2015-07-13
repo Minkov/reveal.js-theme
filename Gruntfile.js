@@ -151,7 +151,7 @@ module.exports = function(grunt) {
     grunt.registerTask('css-core', ['sass:core', 'autoprefixer', 'cssmin']);
 
     // All CSS
-    grunt.registerTask('css', ['sass', 'autoprefixer', 'cssmin']);
+    grunt.registerTask('css', ['autoprefixer', 'cssmin']);
 
     // Package presentation to archive
     grunt.registerTask('package', ['default', 'zip']);
